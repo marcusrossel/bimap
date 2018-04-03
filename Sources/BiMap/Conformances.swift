@@ -10,7 +10,7 @@
 
 extension BiMap: Equatable {
    
-   // Two bimaps are equal iff all of their key-value-pairs are equal.
+   // Two bimaps are equal iff all of their key-value pairs are equal.
    public static func ==(left: BiMap, right: BiMap) -> Bool {
       return left.keysToValues == right.keysToValues
    }
@@ -61,8 +61,24 @@ extension BiMap: Sequence {
 
 // MARK: - Collection
 
-/*
 extension BiMap: Collection {
    
+   /// The type used by a `BiMap` to index it as a collection.
+   public typealias Index = Dictionary<Key, Value>.Index
+   
+   /// The bimap's start index.
+   public var startIndex: Index { return keysToValues.startIndex }
+   
+   /// The bimap's end index.
+   public var endIndex: Index { return keysToValues.endIndex }
+   
+   /// Returns the element at a given index.
+   public subscript(position: Index) -> Iterator.Element {
+      return keysToValues[position]
+   }
+   
+   /// Returns the index after a given index.
+   public func index(after index: Index) -> Index {
+      return keysToValues.index(after: index)
+   }
 }
-*/
