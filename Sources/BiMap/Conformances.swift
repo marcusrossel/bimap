@@ -21,7 +21,7 @@ extension BiMap: Equatable {
 extension BiMap: ExpressibleByDictionaryLiteral {
    
    /// Creates a bimap from a dictionary literal.
-   /// The literal must only contain unique key-value-pairs, or else a runtime
+   /// The literal must only contain unique key-value pairs, or else a runtime
    /// error occurs.
    ///
    /// Complexity: O(elements.count)
@@ -29,18 +29,17 @@ extension BiMap: ExpressibleByDictionaryLiteral {
       // Initializes the dictionaries as empty.
       self.init()
    
-      // Processes the key-value-pairs.
+      // Processes the key-value pairs.
       for (key, value) in elements {
-         //#warning("Complexity only holds up if this is O(1).")
          // Performs precondition checks.
          guard
             !keysToValues.keys.contains(key) &&
             !keysToValues.values.contains(value)
          else {
-            fatalError("Attempted to create a `Bimap` from non-unique key-value-pairs.")
+            fatalError("Attempted to create a `Bimap` from non-unique key-value pairs.")
          }
          
-         // Sets the dictionaries' key-value-pairs.
+         // Sets the dictionaries' key-value pairs.
          keysToValues[key] = value
          valuesToKeys[value] = key
       }
