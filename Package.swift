@@ -1,22 +1,27 @@
-// swift-tools-version:4.1
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version:5.2
 
 import PackageDescription
 
 let package = Package(
     name: "BiMap",
+    
     products: [
         .library(
             name: "BiMap",
-            targets: ["BiMap"]),
+            targets: ["BiMap"]
+        ),
     ],
+    
     dependencies: [],
+    
     targets: [
         .target(
             name: "BiMap",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "BiMapTests",
-            dependencies: ["BiMap"]),
+            dependencies: ["BiMap"]
+        ),
     ]
 )
