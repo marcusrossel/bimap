@@ -32,7 +32,7 @@ extension BiMap: ExpressibleByDictionaryLiteral {
         for (key, value) in elements {
             // Performs precondition checks.
             guard !keysToValues.keys.contains(key) && !keysToValues.values.contains(value) else {
-                fatalError("Attempted to create a `Bimap` from non-unique key-value pairs.")
+                fatalError("Attempted to create a `BiMap` from non-unique key-value pairs.")
             }
             
             // Sets the dictionaries' key-value pairs.
